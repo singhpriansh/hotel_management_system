@@ -11,7 +11,7 @@ public class hotel_management_system extends JFrame{
 	hotel_management_system() {
 		setSize(1366, 565);
     setLocation(100, 100);
-
+		
     setVisible(true);
 	}
 
