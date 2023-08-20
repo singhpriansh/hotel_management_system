@@ -38,11 +38,11 @@ public class Login extends JFrame{
     cancel.setForeground(Color.BLACK);
     add(cancel);
 
-    ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/second.jpg"));
-    Image i2 = i1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+    ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/second.png"));
+    Image i2 = i1.getImage().getScaledInstance(300, 300, Image.SCALE_DEFAULT);
     ImageIcon i3 = new ImageIcon(i2);
     JLabel image = new JLabel(i3);
-    image.setBounds(350,10,200,200);
+    image.setBounds(320,20,210,210);
     add(image);
 
     setBounds(500,200,600,300);
