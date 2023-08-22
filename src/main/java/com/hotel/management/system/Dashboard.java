@@ -3,6 +3,8 @@ package com.hotel.management.system;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -11,7 +13,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class Dashboard extends JFrame{
+public class Dashboard extends JFrame implements ActionListener {
 
   Dashboard() {
     setBounds(0,0, 1550, 1000);
@@ -45,17 +47,25 @@ public class Dashboard extends JFrame{
 
     JMenuItem addemployee = new JMenuItem("ADD EMPLOYEE");
     admin.add(addemployee);
+    addemployee.addActionListener(this);
 
     JMenuItem addrooms = new JMenuItem("ADD ROOMS");
     admin.add(addrooms);
+    addrooms.addActionListener(this);
 
     JMenuItem adddrivers = new JMenuItem("ADD DRIVERS");
     admin.add(adddrivers);
+    adddrivers.addActionListener(this);
 
     setVisible(true);
   }
 
   public static void main (String[] args) {
     new Dashboard();
-  }  
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent ae) {
+    // if (ae.getSource() == addemployee) {}
+  }
 }
