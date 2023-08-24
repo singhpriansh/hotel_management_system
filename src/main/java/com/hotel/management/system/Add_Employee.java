@@ -21,7 +21,7 @@ public class Add_Employee extends JFrame implements ActionListener {
   JTextField tfname, tfage, tfsalary, tfphone, tfemail, tfaadhar;
   JRadioButton rbmale, rbfemale;
   JComboBox<String> cbjob;
-  JButton submit;
+  JButton jbadd, cancel;
 
   Add_Employee() {
     setLayout(null);
@@ -112,12 +112,15 @@ public class Add_Employee extends JFrame implements ActionListener {
     tfaadhar.setBounds(200, 380, 150, 30);
     add(tfaadhar);
 
-    JButton submit = new JButton("SUBMIT");
-    // submit.setBackground(Color.WHITE);
-    // submit.setForeground(Color.BLACK);
-    submit.setBounds(200, 430, 150, 30);
-    submit.addActionListener(this);
-    add(submit);
+    jbadd = new JButton("Register Employee");
+    jbadd.setBounds(40, 430, 160, 30);
+    jbadd.addActionListener(this);
+    add(jbadd);
+
+    cancel = new JButton("Cancel");
+    cancel.setBounds(200, 430, 140, 30);
+    cancel.addActionListener(this);
+    add(cancel);
 
     ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/tenth.jpg"));
     Image i2 = i1.getImage().getScaledInstance(450, 450, Image.SCALE_DEFAULT);
@@ -137,79 +140,83 @@ public class Add_Employee extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent ae) {
-    // throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-    String name = tfname.getText();
-    String age = tfage.getText();
-    String salary = tfsalary.getText();
-    String phone = tfphone.getText();
-    String email = tfemail.getText();
-    String aadhar = tfaadhar.getText();
+    if (ae.getSource() == jbadd) {
+      String name = tfname.getText();
+      String age = tfage.getText();
+      String salary = tfsalary.getText();
+      String phone = tfphone.getText();
+      String email = tfemail.getText();
+      String aadhar = tfaadhar.getText();
+      String gender = null;
 
-    String gender = null;
-    if(rbmale.isSelected()) {
-      gender = "Male";
-    } else if(rbfemale.isSelected()){
-      gender = "Female";
-    }
-    String job = (String)cbjob.getSelectedItem();
+      if(rbmale.isSelected()) {
+        gender = "Male";
+      } else if(rbfemale.isSelected()){
+        gender = "Female";
+      }
 
-    // Validations
-    if (name.equals("")) {
-      JOptionPane.showMessageDialog(null, "Name should not be empty");
-      return;
-    }
+      String job = (String)cbjob.getSelectedItem();
 
-    try {
-      if (age.equals("") || Integer.valueOf(age) < 5 || Integer.valueOf(age) > 120) {
+      // Validations
+      if (name.equals("")) {
+        JOptionPane.showMessageDialog(null, "Name should not be empty");
+        return;
+      }
+
+      try {
+        if (age.equals("") || Integer.valueOf(age) < 5 || Integer.valueOf(age) > 120) {
+          JOptionPane.showMessageDialog(null, "Please enter a valid age");
+          return;
+        }
+      } catch (NumberFormatException ne){
         JOptionPane.showMessageDialog(null, "Please enter a valid age");
         return;
       }
-    } catch (NumberFormatException ne){
-      JOptionPane.showMessageDialog(null, "Please enter a valid age");
-      return;
-    }
 
-    try {
-      if (salary.equals("") || Integer.valueOf(salary) < 5000) {
+      try {
+        if (salary.equals("") || Integer.valueOf(salary) < 5000) {
+          JOptionPane.showMessageDialog(null, "Please enter a valid Salary");
+          return;
+        }
+      } catch (NumberFormatException ne){
         JOptionPane.showMessageDialog(null, "Please enter a valid Salary");
         return;
       }
-    } catch (NumberFormatException ne){
-      JOptionPane.showMessageDialog(null, "Please enter a valid Salary");
-      return;
-    }
 
-    try {
-      if (phone.equals("") || phone.length() < 10 || phone.length() > 10) {
-        JOptionPane.showMessageDialog(null, "Please enter a valid Phone number");
+      try {
+        if (phone.equals("") || phone.length() < 10 || phone.length() > 10) {
+          JOptionPane.showMessageDialog(null, "Please enter a valid Phone number");
+          return;
+        }
+      } catch (Exception exception){
+        throw new UnsupportedOperationException("Exception while processing phone number");
+      }
+
+      if (email.equals("") || !email.contains("@") || !email.endsWith(".com")){
+        JOptionPane.showMessageDialog(null, "Please enter a valid email id");
         return;
       }
-    } catch (Exception exception){
-      throw new UnsupportedOperationException("Exception while processing phone number");
-    }
 
-    if (email.equals("") || !email.contains("@") || !email.endsWith(".com")){
-      JOptionPane.showMessageDialog(null, "Please enter a valid email id");
-      return;
-    }
-
-    try {
-      if (aadhar.equals("") || aadhar.length() < 12 || aadhar.length() > 12) {
-        JOptionPane.showMessageDialog(null, "Please enter a valid aadhar number");
-        return;
+      try {
+        if (aadhar.equals("") || aadhar.length() < 12 || aadhar.length() > 12) {
+          JOptionPane.showMessageDialog(null, "Please enter a valid aadhar number");
+          return;
+        }
+      } catch (Exception exception){
+        throw new UnsupportedOperationException("Exception while processing aadhar number");
       }
-    } catch (Exception exception){
-      throw new UnsupportedOperationException("Exception while processing aadhar number");
-    }
 
-    try {
-      Connect conn = new Connect();
-      String query = "insert into employee values('"+ name +"','"+ age +"','"+ gender +"','"+ job +"','"+ salary +"','"+ phone +"','"+ email +"','"+ aadhar + "');";
-      conn.s.executeUpdate(query);
-      JOptionPane.showMessageDialog(null, "Employee added successfully");
+      try {
+        Connect conn = new Connect();
+        String query = "insert into employee values('"+ name +"','"+ age +"','"+ gender +"','"+ job +"','"+ salary +"','"+ phone +"','"+ email +"','"+ aadhar + "');";
+        conn.s.executeUpdate(query);
+        JOptionPane.showMessageDialog(null, "Employee added successfully");
+        setVisible(false);
+      } catch(Exception excep) {
+        excep.printStackTrace();
+      }
+    } else if (ae.getSource() == cancel) {
       setVisible(false);
-    } catch(Exception excep) {
-      excep.printStackTrace();
     }
   }
 }
