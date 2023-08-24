@@ -15,6 +15,8 @@ import javax.swing.JMenuItem;
 
 public class Dashboard extends JFrame implements ActionListener {
 
+  JMenuItem reception, addemployee, addrooms, adddrivers;
+
   Dashboard() {
     setBounds(0,0, 1550, 1000);
     ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/third.jpg"));
@@ -38,24 +40,25 @@ public class Dashboard extends JFrame implements ActionListener {
     hotel.setForeground(Color.BLUE);
     mb.add(hotel);
 
-    JMenuItem reception = new JMenuItem("RECEPTION");
+    reception = new JMenuItem("RECEPTION");
     reception.setForeground(Color.BLUE);
+    reception.addActionListener(this);
     hotel.add(reception);
 
     JMenu admin = new JMenu("ADMIN");
     mb.add(admin);
 
-    JMenuItem addemployee = new JMenuItem("ADD EMPLOYEE");
-    admin.add(addemployee);
+    addemployee = new JMenuItem("ADD EMPLOYEE");
     addemployee.addActionListener(this);
+    admin.add(addemployee);
 
-    JMenuItem addrooms = new JMenuItem("ADD ROOMS");
-    admin.add(addrooms);
+    addrooms = new JMenuItem("ADD ROOMS");
     addrooms.addActionListener(this);
+    admin.add(addrooms);
 
-    JMenuItem adddrivers = new JMenuItem("ADD DRIVERS");
-    admin.add(adddrivers);
+    adddrivers = new JMenuItem("ADD DRIVERS");
     adddrivers.addActionListener(this);
+    admin.add(adddrivers);
 
     setVisible(true);
   }
@@ -66,6 +69,10 @@ public class Dashboard extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent ae) {
-    // if (ae.getSource() == addemployee) {}
+    if (ae.getActionCommand().equals("ADD EMPLOYEE")) {
+      new Add_Employee();
+    }else if (ae.getActionCommand().equals("ADD ROOMS")) {
+      new Add_Rooms();
+    }
   }
 }
