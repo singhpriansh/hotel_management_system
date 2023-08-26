@@ -26,7 +26,7 @@ public class Add_Employee extends JFrame implements ActionListener {
   Add_Employee() {
     setLayout(null);
 
-    JLabel lblname = new JLabel("NAME");
+    JLabel lblname = new JLabel("Name");
     lblname.setBounds(60, 30, 120, 30);
     lblname.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lblname);
@@ -35,7 +35,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     tfname.setBounds(200, 30, 150, 30);
     add(tfname);
 
-    JLabel lblage = new JLabel("AGE");
+    JLabel lblage = new JLabel("Age");
     lblage.setBounds(60, 80, 120, 30);
     lblage.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lblage);
@@ -44,7 +44,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     tfage.setBounds(200, 80, 150, 30);
     add(tfage);
 
-    JLabel lblgender = new JLabel("GENDER");
+    JLabel lblgender = new JLabel("Gender");
     lblgender.setBounds(60, 130, 120, 30);
     lblgender.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lblgender);
@@ -65,7 +65,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     bg.add(rbmale);
     bg.add(rbfemale);
 
-    JLabel lbljob = new JLabel("JOB");
+    JLabel lbljob = new JLabel("Job");
     lbljob.setBounds(60, 180, 120, 30);
     lbljob.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lbljob);
@@ -76,7 +76,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     cbjob.setBackground(Color.WHITE);
     add(cbjob);
 
-    JLabel lblsalary = new JLabel("SALARY");
+    JLabel lblsalary = new JLabel("Salary");
     lblsalary.setBounds(60, 230, 120, 30);
     lblsalary.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lblsalary);
@@ -85,7 +85,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     tfsalary.setBounds(200, 230, 150, 30);
     add(tfsalary);
 
-    JLabel lblphone = new JLabel("PHONE NO");
+    JLabel lblphone = new JLabel("Phone No");
     lblphone.setBounds(60, 280, 120, 30);
     lblphone.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lblphone);
@@ -94,7 +94,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     tfphone.setBounds(200, 280, 150, 30);
     add(tfphone);
 
-    JLabel lblemail = new JLabel("EMAIL ID");
+    JLabel lblemail = new JLabel("Email ID");
     lblemail.setBounds(60, 330, 120, 30);
     lblemail.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lblemail);
@@ -103,7 +103,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     tfemail.setBounds(200, 330, 150, 30);
     add(tfemail);
 
-    JLabel lblaadhar = new JLabel("AADHAR");
+    JLabel lblaadhar = new JLabel("Aadhar");
     lblaadhar.setBounds(60, 380, 120, 30);
     lblaadhar.setFont(new Font("Comfortaa", Font.PLAIN, 17));
     add(lblaadhar);
@@ -118,7 +118,7 @@ public class Add_Employee extends JFrame implements ActionListener {
     add(jbadd);
 
     cancel = new JButton("Cancel");
-    cancel.setBounds(200, 430, 140, 30);
+    cancel.setBounds(210, 430, 140, 30);
     cancel.addActionListener(this);
     add(cancel);
 
