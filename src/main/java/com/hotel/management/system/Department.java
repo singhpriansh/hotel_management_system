@@ -1,12 +1,10 @@
 package com.hotel.management.system;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,7 +12,7 @@ import javax.swing.JTable;
 
 import net.proteanit.sql.DbUtils;
 
-public class Department extends JFrame implements ActionListener{
+public class Department extends JFrame implements ActionListener {
   JTable table;
   JButton backButton;
 
@@ -22,23 +20,16 @@ public class Department extends JFrame implements ActionListener{
     getContentPane().setBackground(Color.WHITE);
     setLayout(null);
 
-    ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/eight.jpg"));
-    Image i2 = i1.getImage().getScaledInstance(600, 600, Image.SCALE_DEFAULT);
-    ImageIcon i3 = new ImageIcon(i2);
-    JLabel image = new JLabel(i3);
-    image.setBounds(500, 0, 600, 600);
-    add(image);
-
     JLabel l1 = new JLabel("Department");
     l1.setBounds(10, 5, 100, 20);
     add(l1);
 
     JLabel l2 = new JLabel("Budget");
-    l2.setBounds(200, 5, 100, 20);
+    l2.setBounds(270, 5, 100, 20);
     add(l2);
 
     table = new JTable();
-    table.setBounds(0, 30, 400, 350);
+    table.setBounds(0, 30, 550, 350);
     add(table);
 
     try {
