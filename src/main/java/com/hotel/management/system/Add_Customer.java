@@ -60,9 +60,9 @@ public class Add_Customer extends JFrame implements ActionListener {
     lblname.setBounds(40, 160, 100, 30);
     add(lblname);
 
-    tfnumber = new JTextField();
-    tfnumber.setBounds(220, 160, 150, 30);
-    add(tfnumber);
+    tfname = new JTextField();
+    tfname.setBounds(220, 160, 150, 30);
+    add(tfname);
 
     lblgender = new JLabel("Gender");
     lblgender.setBounds(40, 200, 100, 30);
@@ -155,7 +155,7 @@ public class Add_Customer extends JFrame implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent ae) {
     if (ae.getSource() == combine) {
-      String id = (String) combo_id.getSelectedItem();
+      String id = (String)combo_id.getSelectedItem();
       String number = tfnumber.getText();
       String name = tfname.getText();
       String gender = null;
@@ -169,8 +169,8 @@ public class Add_Customer extends JFrame implements ActionListener {
       String time = check_in_time.getText();
       String deposit = tfdeposit.getText();
       try {
-        String query = "insert into customer values ('"+ id +"','"+ number +"','"+ name +"','"+ gender +"','"+country+"', '"+ room +"', '"+ time +"','"+ deposit +"')";
-        String query2 = "update room set availability='Occupied' where room_number="+room+"'";
+        String query = "insert into customer values ('"+ id +"', '"+ number +"', '"+ name +"', '"+ gender +"', '"+country+"', '"+ room +"', '"+ time +"', '"+ deposit +"')";
+        String query2 = "update room set availability='Occupied' where room_number='"+room+"'";
         Connect conn = new Connect();
         conn.s.executeUpdate(query);
         conn.s.executeUpdate(query2);
@@ -178,11 +178,11 @@ public class Add_Customer extends JFrame implements ActionListener {
         setVisible(false);
         new Reception();
       } catch (Exception e){
-        e.printStackTrace();
+        e.printStackTrace(); 
       }
     } else if (ae.getSource() == back) {
-        setVisible(false);
-        new Reception();
+      setVisible(false);
+      new Reception();
     }
   }
 }

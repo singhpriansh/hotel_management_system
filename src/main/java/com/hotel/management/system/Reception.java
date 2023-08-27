@@ -91,5 +91,9 @@ public class Reception extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent ae) {
+    if (ae.getSource() == newCustomer) {
+      setVisible(false);
+      new Add_Customer();
+    }
   }
 }
