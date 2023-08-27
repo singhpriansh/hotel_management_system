@@ -19,6 +19,12 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>net.proteanit.sql</groupId>
+			<artifactId>rs2xml</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>

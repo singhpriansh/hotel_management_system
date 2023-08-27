@@ -94,6 +94,9 @@ public class Reception extends JFrame implements ActionListener {
     if (ae.getSource() == newCustomer) {
       setVisible(false);
       new Add_Customer();
+    }else if (ae.getSource() == rooms) {
+      setVisible(false);
+      new Room();
     }
   }
 }
