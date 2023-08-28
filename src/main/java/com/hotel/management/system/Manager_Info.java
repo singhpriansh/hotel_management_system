@@ -12,11 +12,11 @@ import javax.swing.JTable;
 
 import net.proteanit.sql.DbUtils;
 
-public class Employee_Info extends JFrame implements ActionListener {
+public class Manager_Info extends JFrame implements ActionListener {
   JTable table;
   JButton backButton;
 
-  Employee_Info() {
+  Manager_Info() {
     getContentPane().setBackground(Color.WHITE);
     setLayout(null);
 
@@ -58,7 +58,7 @@ public class Employee_Info extends JFrame implements ActionListener {
 
     try {
       Connect conn = new Connect();
-      ResultSet rs = conn.s.executeQuery("select * from employee");
+      ResultSet rs = conn.s.executeQuery("select * from employee where job='Manager'");
       table.setModel(DbUtils.resultSetToTableModel(rs));
     } catch (Exception e) {
       e.printStackTrace();
@@ -74,7 +74,7 @@ public class Employee_Info extends JFrame implements ActionListener {
   }
 
   public static void main (String[] args) {
-    new Employee_Info();
+    new Manager_Info();
   }
 
   @Override

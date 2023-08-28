@@ -12,43 +12,43 @@ import javax.swing.JTable;
 
 import net.proteanit.sql.DbUtils;
 
-public class Employee_Info extends JFrame implements ActionListener {
+public class Customer_Info extends JFrame implements ActionListener {
   JTable table;
   JButton backButton;
 
-  Employee_Info() {
+  Customer_Info() {
     getContentPane().setBackground(Color.WHITE);
     setLayout(null);
 
-    JLabel l1 = new JLabel("Name");
+    JLabel l1 = new JLabel("Info document");
     l1.setBounds(0, 5, 125, 20);
     add(l1);
 
-    JLabel l2 = new JLabel("Age");
+    JLabel l2 = new JLabel("Number");
     l2.setBounds(125, 5, 125, 20);
     add(l2);
 
-    JLabel l3 = new JLabel("Gender");
+    JLabel l3 = new JLabel("Name");
     l3.setBounds(250, 5,125, 20);
     add(l3);
 
-    JLabel l4 = new JLabel("Job");
+    JLabel l4 = new JLabel("Gender");
     l4.setBounds(375, 5, 125, 20);
     add(l4);
 
-    JLabel l5 = new JLabel("Salary");
+    JLabel l5 = new JLabel("Country");
     l5.setBounds(500, 5, 125, 20);
     add(l5);
 
-    JLabel l6 = new JLabel("Phone Number");
+    JLabel l6 = new JLabel("Room Number");
     l6.setBounds(625, 5, 125, 20);
     add(l6);
 
-    JLabel l7 = new JLabel("Email");
+    JLabel l7 = new JLabel("Checked in");
     l7.setBounds(750, 5, 125, 20);
     add(l7);
 
-    JLabel l8 = new JLabel("Aadhar");
+    JLabel l8 = new JLabel("Deposit Amount");
     l8.setBounds(875, 5, 125, 20);
     add(l8);
 
@@ -58,7 +58,7 @@ public class Employee_Info extends JFrame implements ActionListener {
 
     try {
       Connect conn = new Connect();
-      ResultSet rs = conn.s.executeQuery("select * from employee");
+      ResultSet rs = conn.s.executeQuery("select * from customer");
       table.setModel(DbUtils.resultSetToTableModel(rs));
     } catch (Exception e) {
       e.printStackTrace();
@@ -74,7 +74,7 @@ public class Employee_Info extends JFrame implements ActionListener {
   }
 
   public static void main (String[] args) {
-    new Employee_Info();
+    new Customer_Info();
   }
 
   @Override
