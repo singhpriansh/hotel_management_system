@@ -70,7 +70,7 @@ public class Add_Rooms extends JFrame implements ActionListener {
     tfprice.setBounds(220, 230, 150, 30);
     add(tfprice);
 
-    lbltype = new JLabel("Bed size");
+    lbltype = new JLabel("Bed type");
     lbltype.setFont(new Font("Comfortaa", Font.PLAIN, 16));
     lbltype.setBounds(60, 280, 140, 30);
     add(lbltype);
