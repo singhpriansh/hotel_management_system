@@ -91,7 +91,6 @@ public class Search_Room extends JFrame implements ActionListener {
     backButton.setBounds(550, 520, 120, 30);
     add(backButton);
 
-
     setBounds(300, 200, 1000, 600);
     setVisible(true);
   }
