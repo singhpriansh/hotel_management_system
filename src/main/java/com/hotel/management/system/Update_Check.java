@@ -164,14 +164,14 @@ public class Update_Check extends JFrame implements ActionListener {
         e.printStackTrace();
       }
     } else if (ae.getSource() == update) {
-      // String number = customer.getSelectedItem();
+      String number = customer.getSelectedItem();
       String room = tfroom.getText();
       String name = tfname.getText();
       String check_in = tfcheck_in.getText();
       String deposit = tfpaid.getText();
       try {
         Connect c = new Connect();
-        c.s.executeUpdate("update customer set room='"+room+"', name='"+name+"', checkintime='"+check_in+"', deposit='"+deposit+"'");
+        c.s.executeUpdate("update customer set room='"+room+"', name='"+name+"', checkintime='"+check_in+"', deposit='"+deposit+"' where number='"+ number +"'");
         JOptionPane.showMessageDialog(null, "Data updated successfully");
         setVisible(false);
         new Reception();
