@@ -115,15 +115,14 @@ public class Add_Rooms extends JFrame implements ActionListener {
 
       try {
         Connect conn = new Connect();
-        String str = "insert into room values('"+ room_number +"', '"+ availability +"', '"+ status +"','"+ price +"', '"+ type +"')";
-        conn.s.executeUpdate(str);
-
-        JOptionPane.showMessageDialog(null,"New room added successfully");
-        setVisible(false);
+        String str = "insert into room values('"+ room_number +"', '"+ availability +"', '"+ status +"', '"+ price +"', '"+ type +"')";
+        if(conn.s.executeUpdate(str) == 1) {
+          setVisible(false);
+          JOptionPane.showMessageDialog(null,"New room added successfully");
+        }
       } catch (Exception e) {
         e.printStackTrace();
       }
-
     } else if (ae.getSource() == cancel) {
       setVisible(false);
     }
